@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form | CodingLab </title>
+    <link href="{% static 'css/style1.css' %}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+{% block content %}
+<body>
+<div class="container-fluid p-0">
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'img/banner.png' %}" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="{% static 'p-3' %}" style="max-width: 900px;">
+                        <i class="fa fa-home fa-4x text-primary mb-4 d-none d-sm-block"></i>
+                        <h1 class="display-2 text-uppercase text-white mb-md-4">Build Your Dream With Your KBC</h1>
+                        <div class="container" style="color:black; text-align:center;">
+                            <div class="title"><h1> Registration</h1></div>
+                            <br>
+                            <div class="content">
+                                <form action="register" method="post">
+                                    {% csrf_token %}
+                                    <div class="user-details">
+                                        <div class="input-box">
+                                            <span class="details">username</span><br>
+                                            <input type="text" name="username" placeholder="Enter your username"
+                                                   required>
+                                        </div>
+                                        <br>
+                                        <div class="input-box">
+                                            <span class="details">password</span><br>
+                                            <input type="text" name="password" placeholder="Enter your password"
+                                                   required>
+                                        </div>
+                                        <br>
+                                        <div class="input-box">
+                                            <span class="details">confirm_Password</span><br>
+                                            <input type="text" name="password1" placeholder="Confirm your password"
+                                                   required>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <br>
+                                    <div class="button">
+                                        <input type="submit" value="Register">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% for i in messages %}
+<h1>{{i}}</h1>
+{% endfor %}
+
+</body>
+{% endblock %}
+</html>

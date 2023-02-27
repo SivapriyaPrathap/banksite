@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<!---Coding By CoderGirl | www.codinglabweb.com--->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<title>Login & Registration Form | CoderGirl</title>-->
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+{% block content %}
+<!-- Carousel Start -->
+<div class="container-fluid p-0">
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'img/banner.png' %}" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="{% static 'p-3' %}" style="max-width: 900px;">
+                        <i class="fa fa-home fa-4x text-primary mb-4 d-none d-sm-block"></i>
+                        <h1 class="display-2 text-uppercase text-white mb-md-4">Build Your Dream With Your KBC</h1>
+                        <div class="container" style="color:black; text-align:center;">
+                            <div class="login form">
+                                <header><h1>Login</h1></header>
+                                <form action="login" method="post">
+                                    {% csrf_token %}
+                                    <span class="details">username</span>
+                                    <input type="text" name="username" placeholder="Enter your username"><br>
+                                    <span class="details">password</span>
+                                    <input type="password" name="password" placeholder="Enter your password"><br>
+                                    <div class="button">
+                                        <input type="submit" value="Login">
+                                    </div>
+                                </form>
+                                <div class="signup">
+                                  <span class="signup">Don't have an account?<br>
+                                   <label for="check"><a href="register">Signup</a> </label><br>
+                                  </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Carousel End -->
+{% for i in messages %}
+<h1>{{i}}</h1>
+{% endfor %}
+</body>
+{% endblock %}<br>
+</html>
